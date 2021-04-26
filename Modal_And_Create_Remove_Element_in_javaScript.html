@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #modal{
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background:rgba(0,0,0,0.5);
+            display: none;
+            transition: 0.5s;
+            animation-name: animate;
+            animation-duration: 0.5s;
+        }
+
+        @keyframes animate{
+            to{
+                top: 0;
+                opacity: 1;
+            }
+
+            from{
+                top: -300px;
+                opacity: 0;
+            }
+        }
+
+
+        #modal-content{
+            height: 100px;
+            width: 300px;
+            background-color: white;
+            position: absolute;
+            left: 50%;
+            top: 10%;
+            transform: translate(-50%, -10%);
+            padding: 15px;
+            box-shadow: 5px 5px 10px rgb(0, 0, 0);
+        }
+
+        #close{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        #close:hover{
+            color: red;
+            transform: scale(1.5);
+        }
+
+        #btn{
+            margin: 5px;
+        }
+
+        /* */
+        #remove{
+            margin-top: 10px;
+            width: 300px;
+            height: 100px;
+            margin: 5px;
+        }
+
+        #main-r{
+            background-color: wheat;
+            padding: 5px;
+            
+        }
+
+        #rmvbtn{
+            padding: 10px 5px;
+        }
+
+        .add{
+            background-color: tomato;
+        }
+
+        .remo{
+            display: none;
+        }
+
+        /*  */
+
+        #addBtn{
+            margin: 0px 5px;
+        }
+
+        #addShow{
+            margin: 5px 5px;
+        }
+
+        /*  */
+
+        #removeChild{
+            margin: 5px 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="modal">
+        <div id="modal-body">
+            <div id="modal-content">
+                <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                <span id="close">&times;</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="btn">
+        <button>Modal Button</button>
+    </div>
+    <!--  -->
+    <div id="remove" class="">
+        <div id="main-r">
+            <h2>Remove Section</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa aspernatur enim, similique eaque ipsum maxime aliquid esse delectus blanditiis accusamus?</p>
+        </div>
+    </div>
+
+    <div id="rmvbtn">
+        <button>Remove Button</button>
+    </div>
+
+    <!--  -->
+
+    <div id="addBtn">
+        <button>Create Button</button>
+    </div>
+
+    <div id="addShow"></div>
+
+    <!--  -->
+
+    <div id="removeChild">
+        <button>Remove Child</button>
+    </div>
+
+    <script>
+        var m = document.querySelector('#modal') 
+        var b = document.querySelector('#btn')
+
+        b.addEventListener('click', function() {
+            m.style.display = 'block'
+        })
+
+        m.addEventListener('click', function() {
+            m.style.display = 'none'
+        })
+
+        var remove = document.querySelector('#remove')
+        var rmvbtn = document.querySelector('#rmvbtn')
+
+        // rmvbtn.onclick = function() {
+        //     remove.style.display = 'none'
+        // }
+
+        rmvbtn.onclick = function() {
+            remove.remove()
+            // remove.classList.toggle('remo')
+            // remove.classList.toggle('add')
+            // remove.classList.add('add')
+        }
+
+        var addBtn = document.querySelector('#addBtn')
+        var addShow = document.querySelector('#addShow')
+
+        addBtn.addEventListener('click', function () {
+            var li = document.createElement('li')
+            li.innerText = 'Hello'
+            addShow.appendChild(li)
+        })
+
+        var removeChild = document.querySelector('#removeChild')
+
+        removeChild.onclick = function () {
+            addShow.removeChild(addShow.childNodes[0])
+        }
+
+    </script>
+</body>
+</html>
