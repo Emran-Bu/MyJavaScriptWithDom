@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+
+    <style>
+
+        .modal{
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: white;
+            display: none;
+            transition: 0.5s;
+            animation-name: animate;
+            animation-duration: 0.5s;
+            background-color: gray;
+        }
+
+        .snd-modal{
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: white;
+            display: none;
+            transition: 0.5s;
+            animation-name: animate;
+            animation-duration: 0.5s;
+            background-color: gray;
+        }
+
+        .cl{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .cl:hover{
+            color: red;
+            transform: scale(1.5);
+        }
+
+        @keyframes animate{
+            to{
+                top: 0;
+                opacity: 1;
+            }
+
+            from{
+                top: -300px;
+                opacity: 0;
+            }
+        }
+
+        .modal-content{
+            height: 150px;
+            width: 300px;
+            background-color: white;
+            position: absolute;
+            left: 50%;
+            top: 10%;
+            transform: translate(-50%, -10%);
+            padding: 15px;
+            box-shadow: 5px 5px 10px rgb(0, 0, 0)
+        }
+
+        .close{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .close:hover{
+            color: red;
+            transform: scale(1.5);
+        }
+
+        .modal-title h2{
+            text-align: center;
+            color: gray;
+        }
+
+        .first-input{
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .snd-input{
+            text-align: center;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <button id="login">Login</button>
+    <button id="signUp">Sign Up</button>
+    <div class="modal">
+
+
+        <div class="modal-content">
+
+            <div class="modal-title">
+                <h2 class="heading">Login Now</h2>
+                <span class="close">&times;</span>
+            </div>
+
+            <div class="first-input">
+                <label for="">User Name:</label>
+                <input type="text" name="" id="">
+            </div>
+
+            <div class="snd-input">
+                <label for="">Password:</label>
+                <input type="text" name="" id="">
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="snd-modal">
+
+
+        <div class="modal-content">
+
+            <div class="modal-title">
+                <h2 class="heading">Sign Up</h2>
+                <span class="cl">&times;</span>
+            </div>
+
+            <div class="first-input">
+                <label for="">User Name:</label>
+                <input type="text" name="" id="">
+            </div>
+
+            <div class="snd-input">
+                <label for="">Password:</label>
+                <input type="text" name="" id="">
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        var modal = document.querySelector('.modal')
+        var sndModal = document.querySelector('.snd-modal')
+        var clos = document.querySelector('.close')
+        var cl = document.querySelector('.cl')
+        var login = document.querySelector('#login')
+        var signUp = document.querySelector('#signUp')
+        var heading = document.querySelector('.heading')
+
+        
+        clos.onclick = function() {
+            modal.style.display = 'none'
+        }
+
+        cl.onclick = function() {
+            sndModal.style.display = 'none'
+        }
+
+        login.addEventListener('click', function() {
+            modal.style.display = 'block'
+        })
+
+        signUp.addEventListener('click', function() {
+            sndModal.style.display = 'block'
+        })
+
+    </script>
+</body>
+</html>
