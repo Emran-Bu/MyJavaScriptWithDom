@@ -36,9 +36,9 @@
             opacity: 1;
         }
 
-        .fade{
+        /* .fade{
             opacity: 0;
-        }
+        } */
 
     </style>
 </head>
@@ -64,16 +64,25 @@
 
        var count = 0;
        btn.addEventListener('click', function () {
+        
+        if (count % 2 === 0) {
+            pSlider.style.opacity = '0'
+            btn.innerHTML = "Fade In"
 
-        if (count % 2 == 0) {
-            pSlider.classList.toggle('fade');
-            btn.innerText = 'Fade In'
+            setTimeout(() => {
+                pSlider.style.display = "none"
+                
+            }, 500);
             
         } else{
-            pSlider.classList.toggle('fade');
-            btn.innerText = 'Fade Out'
+            pSlider.style.display = "block"
+            pSlider.style.opacity = '0'
+            btn.innerHTML = "Fade Out"
+            setTimeout(() => {
+                pSlider.style.opacity = '1'
+            }, 400);
         }
-        count++
+        count++;
 
        })
         
