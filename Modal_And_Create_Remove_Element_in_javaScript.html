@@ -17,7 +17,7 @@
             right: 0;
             top: 0;
             bottom: 0;
-            background:rgba(0,0,0,0.5);
+            background: white;
             display: none;
             transition: 0.5s;
             animation-name: animate;
@@ -156,7 +156,7 @@
             m.style.display = 'block'
         })
 
-        m.addEventListener('click', function() {
+        document.querySelector('#close').addEventListener('click', function() {
             m.style.display = 'none'
         })
 
