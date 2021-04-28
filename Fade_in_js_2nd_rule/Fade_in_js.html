@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <style>
+
+        .slider{
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .slider h1{
+            text-align: center;
+            border: 1px solid;
+            margin:0;
+            padding: 0;
+            background-color: lawngreen;
+            color: rgb(136, 90, 90);
+        }
+
+        .pSlider p{
+            margin: 0;
+            margin-top: -4px;
+            padding: 3px;
+            background-color: lightgreen;
+            color: rgb(165, 43, 43); 
+        }
+
+        .pSlider{
+            overflow: hidden;
+            transition: opacity 1s;
+            border: 1px solid;
+            opacity: 1;
+        }
+
+        .fade{
+            opacity: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <h1 class="btn">Fade In / Out</h1>
+        <div class="pSlider">
+
+            <div class="wrapper">
+                <img src="BOSS.JPG" style="width: 100%;" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, minus!</p>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+
+       var slider = document.querySelector('.slider')
+       var btn = document.querySelector('.btn')
+       var pSlider = document.querySelector('.pSlider')
+       var wrapper = document.querySelector('.wrapper')
+
+       var count = 0;
+       btn.addEventListener('click', function () {
+
+        if (count % 2 == 0) {
+            pSlider.classList.toggle('fade');
+            btn.innerText = 'Fade In'
+            
+        } else{
+            pSlider.classList.toggle('fade');
+            btn.innerText = 'Fade Out'
+        }
+        count++
+
+       })
+        
+    </script>
+</body>
+</html>
