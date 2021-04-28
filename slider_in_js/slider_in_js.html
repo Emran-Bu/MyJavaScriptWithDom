@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <style>
+
+        .slider{
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .slider h1{
+            text-align: center;
+            border: 1px solid;
+            margin:0;
+            padding: 0;
+            background-color: lawngreen;
+            color: rgb(136, 90, 90);
+        }
+
+        .pSlider p{
+            margin: 0;
+            margin-top: -4px;
+            padding: 3px;
+            background-color: lightgreen;
+            color: rgb(165, 43, 43); 
+        }
+
+        .pSlider{
+            overflow: hidden;
+            transition: height 1s;
+            height: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <h1 class="btn">Slider</h1>
+        <div class="pSlider">
+
+            <div class="wrapper">
+                <img src="BOSS.JPG" style="width: 100%;" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, minus!</p>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+
+       var slider = document.querySelector('.slider')
+       var btn = document.querySelector('.btn')
+       var pSlider = document.querySelector('.pSlider')
+       var wrapper = document.querySelector('.wrapper')
+
+       btn.addEventListener('click', function () {
+
+       
+
+           if (pSlider.clientHeight) {
+            pSlider.style.height = 0;
+            btn.innerHTML = "Slider Open"
+            pSlider.style.border = 'none';
+            pSlider.style.borderRadius = '50%';
+            
+           } else{
+            pSlider.style.height = wrapper.clientHeight + "px";
+            btn.innerHTML = "Slider Close"
+            pSlider.style.border = '1px solid';
+            pSlider.style.borderRadius = '0%';
+            
+           }
+       })
+        
+    </script>
+</body>
+</html>
